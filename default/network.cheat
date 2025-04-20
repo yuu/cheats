@@ -1,0 +1,36 @@
+-*- markdown -*-
+% network
+
+# get global IPv4 address
+```shell
+curl -s http://checkip.amazonaws.com
+```
+
+# scan ip address
+```shell
+sudo arp-scan -l
+```
+
+
+% dns
+
+# forward lookup
+```shell
+dig +short <domain>
+```
+
+# reverse lookup
+```shell
+dig +short -x <ip_address>
+```
+
+# local forward lookup (e.g. raspi)
+```shell
+dns-sd -G v4v6 <domain>
+```
+
+# get specify nameserver
+dig @リプレイス前ネームサーバー +short example.co.jp a
+dig @リプレイス後ネームサーバー +short example.co.jp a
+
+表示された値が同じであれば、リプレイス後のネームサーバーにも必要なDNSレコードが登録されているということになります。

@@ -1,0 +1,64 @@
+-*- markdown -*-
+% Shell Apps
+
+# open by default tool
+open <name>
+
+
+% Shell Clipboard
+
+# copy to clipboard :: pbcopy
+```shell
+pbcopy
+```
+
+# past from clipboard :: pbpaste
+```shell
+pbpaste
+```
+
+
+% Shell DateTime
+
+# date iso8601 :: date
+```shell
+date '+%Y-%m-%dT%H:%M:%S%z'
+```
+
+# today :: today
+```shell
+date '+%Y-%m-%d'
+```
+
+# now :: now
+```shell
+date '+%H:%M:%S'
+```
+
+
+% Shell Dev
+
+# nproc :: nproc
+```shell
+sysctl -n hw.ncpu
+```
+
+# ldd :: ldd
+```shell
+otool -L <ldd_target>
+```
+
+$ ldd_target: ls
+
+# updatedb :: updatedb
+```shell
+/usr/libexec/locate.updatedb
+```
+
+
+% Xcode
+
+# xcode select :: xcode-switch
+```shell
+sudo xcode-select --switch <xcode_app_path>/Contents/Developer
+```

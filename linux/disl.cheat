@@ -1,0 +1,7 @@
+-*- markdown -*-
+% disk
+
+# sdcard mount :: sdmount
+```shell
+mount -o loop,offset=$(expr <partitionStart> \* <sector>) <img> <pos>
+```

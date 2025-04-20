@@ -1,0 +1,7 @@
+-*- markdown -*-
+% aws_cli
+
+# aws switch profile :: aws-switch-profile
+```shell
+export AWS_PROFILE=$(rg -NPo '(?<=profile ).*(?=\])' ~/.aws/config | fzf)
+```

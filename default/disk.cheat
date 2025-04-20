@@ -1,0 +1,7 @@
+-*- markdown -*-
+% mac, disk
+
+# ISO to Img
+```shell
+hdiutil convert -format UDRW -o <out>.img <in>.iso
+```

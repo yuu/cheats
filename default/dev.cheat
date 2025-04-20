@@ -1,0 +1,12 @@
+-*- markdown -*-
+% dev, memory
+
+# valgrind :: valgrind
+```shell
+valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes 2>&1
+```
+
+# valgrind trace children :: dcvalgrind
+```shell
+valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes --trace-children=yes 2>&1
+```

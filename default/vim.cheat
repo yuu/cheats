@@ -1,0 +1,26 @@
+-*- markdown -*-
+% vim
+
+# change file encording
+```shell
+cat <<EOL
+:e ++enc=utf-8 (default)
+:e ++enc=shift_jis
+:e ++enc=euc-jp
+EOL
+```
+
+# change Line feed code
+```shell
+cat <<EOL
+:e ++ff=unix
+:e ++ff=dos
+EOL
+```
+
+# search (ignore case)
+```shell
+cat <<EOL
+/\c{keyword}
+EOL
+```

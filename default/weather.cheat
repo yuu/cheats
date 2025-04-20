@@ -1,0 +1,16 @@
+-*- markdown -*-
+% weather
+
+# show weather info for current location
+```shell
+curl -s "wttr.in" \
+   | grep -v "New feature" \
+   | grep -v Follow
+```
+
+# show weather info for a specific location
+```shell
+curl -s "wttr.in/<location>" \
+   | grep -v "New feature" \
+   | grep -v Follow
+```

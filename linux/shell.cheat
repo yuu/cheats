@@ -1,0 +1,36 @@
+-*- markdown -*-
+% Shell Apps
+
+# open by default tool
+xdg-open <name> > /dev/null 2>&1
+
+
+% Shell Clipboard
+
+# copy to clipboard :: pbcopy
+```shell
+xsel --clipboard --input
+```
+
+# past from clipboard :: pbpaste
+```shell
+xsel --clipboard --output
+```
+
+
+% Shell DateTime
+
+# date iso8601 :: date
+```shell
+date --iso-8601=seconds
+```
+
+# today :: today
+```shell
+date '+%Y-%m-%d'
+```
+
+# now :: now
+```shell
+date '+%H:%M:%S'
+```

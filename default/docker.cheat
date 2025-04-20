@@ -1,0 +1,26 @@
+-*- markdown -*-
+% docker
+
+# delete an image from the local image store
+```shell
+docker rmi <image_id>
+```
+
+
+$ image_id: docker images --- --column 3 --header-lines 1 --delimiter '\s\s+'
+
+
+% docker compose
+
+# print all services logs
+```shell
+docker compose logs -f
+```
+
+# print a service's logs
+```shell
+docker compose logs -f <service_name>
+```
+
+
+$ service_name: docker compose ps --- --column 4 --header-lines 1 --delimiter '\s\s+'

@@ -1,0 +1,31 @@
+-*- markdown -*-
+% ssh_config
+
+# ssh config
+```shell
+cat <<EOL
+host <host_name>
+    HostName <target_address>
+    User     <user_name>
+    identityFile    ~/.ssh/id_rsa
+    StrictHostKeyChecking no
+    ForwardAgent no
+    ForwardX11 no
+EOL
+```
+
+# ssh config multistage
+```shell
+cat <<EOL
+Host login
+  User         user_at_login
+  HostName     login.example.com
+  IdentityFile ~/.ssh/id_rsa_for_login
+
+Host server
+  User user_at_server
+  HostName server.example.com
+  IdentityFile ~/.ssh/id_rsa_for_server
+  ProxyCommand ssh login -W %h:%p
+EOL
+```

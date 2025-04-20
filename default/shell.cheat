@@ -1,0 +1,230 @@
+-*- markdown -*-
+% Shell Usage
+
+# Re-call last input with sudo
+```shell
+sudo !!
+```
+
+# Run a script as background process
+```shell
+<process> &
+```
+
+# List all running processes
+```shell
+ps -A
+```
+
+# Kill a running process
+```shell
+killall <Process-name>
+```
+
+
+% Shell System
+
+# Get the current path
+```shell
+pwd
+```
+
+# Get the current hostname
+```shell
+hostname
+```
+
+# Get the current users
+```shell
+users
+```
+
+# Show calendar
+```shell
+cal
+```
+
+# Show disc space
+```shell
+df -h
+```
+
+# Show disc space (inodes)
+```shell
+df -i
+```
+
+# Show disc space for current directory
+```shell
+du -hs
+```
+
+# Current processes (also CPS usage)
+```shell
+top or htop
+```
+
+
+% Shell group
+# Change group
+```shell
+chgrp <group-name-from> <group-name-to>
+```
+
+
+% Shell Symlinks
+
+# Create symlink
+```shell
+ln -s <source-dirname> <destination-dirname>
+```
+
+# Update symlink
+```shell
+ln -sfn <source-dirname> <destination-dirname>
+```
+
+# Remove symlink
+```shell
+unlink <sample-dirname>
+```
+
+
+% Shell Directories
+
+# List all files of type
+```shell
+find . -name '*.<ext>' -print
+```
+
+# Remove (empty) directory
+```shell
+rmdir <dirname>
+```
+
+
+% Shell Files
+
+# Make (empty) file
+```shell
+touch <filename-txt>
+```
+
+# Duplicate file
+```shell
+cp <filename> <file-copyname>
+```
+
+# Copy/Page folder with content
+```shell
+cp -a <old-folder>/ <new-folder>
+```
+
+# Move/Rename file
+```shell
+mv <current-filename-path> <new-filename-path>
+```
+
+# Move/Rename file and prompt before overwriting an existing file
+```shell
+mv -i <current-filename> <new-filename>
+```
+
+# Remove file
+```shell
+rm <filename-txt>
+```
+
+# Write to file (will overwrite existing content)
+```shell
+cat > <filename-txt>
+```
+
+# Search for a filename-(not content!) in the current directory
+```shell
+find <filename-txt>
+```
+
+# Search for a string inside all files in the current directory and subdrectories
+```shell
+grep -r <string> *
+```
+
+# Search and replace within file
+```shell
+sed -i s/<original-text>/<new-text>/g <filename-txt>
+```
+
+# MD5 hash for files
+```shell
+md5 <filename-txt>
+```
+
+# MD5 hash for folders
+```shell
+tar c <folder> | md5sum
+```
+
+# Encrypt file
+```shell
+openssl enc -aes-256-cbc -e -in <sample-filename-txt> -out <sample-encrypted-txt>
+```
+
+# Decrypt file
+```shell
+openssl enc -aes-256-cbc -d -in <sample-encrypted> -out <sample-filename>
+```
+
+# file permission oct format
+```shell
+stat -c %a <file_path>
+```
+
+
+% Shell Server
+
+# Access via ssh
+```shell
+ssh <username_remote>
+```
+
+# tunnel (5433=host_machine, 5432=remote_machine, localhost=remote_machine)
+```shell
+ssh <userremote_name> -NL 5433:localhost:5432
+```
+
+# Copy file from server to local
+```shell
+scp <username_remote>:<file-to-send-path> <path-to-recieve>
+```
+
+# Copy file from local to server
+```shell
+scp <file-to-send> <username_remote>:<where-to-put>
+```
+
+# all copy file from local to server
+```shell
+scp -r [\!.]* <username_remote>:
+```
+
+# sync between src and dest
+```
+rsync -ru --ignore-existing <src_path> <dest_path>
+```
+
+
+$ username_remote: find ~/.ssh -name config -exec grep -ie 'host [^\*]' {} \; |sed 's/^[ \t]*//g' | awk '{print $2}'
+
+
+% Shell character encoding
+
+# check encoding
+```shell
+nkf --guess <file_path>
+```
+
+# conver to utf-8 from sjis
+```shell
+nkf -w <sjis_file_path> > <output_file_path>
+```

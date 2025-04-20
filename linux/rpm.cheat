@@ -1,0 +1,12 @@
+-*- markdown -*-
+% rpm
+
+# rpmcat :: rpmcat
+```shell
+rpm2cpio <name> | cpio -idv
+```
+
+# rpmshow :: rpmshow
+```shell
+rpm -qlp <name>
+```

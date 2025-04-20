@@ -1,0 +1,7 @@
+-*- markdown -*-
+% qr code
+
+# create a QR code with some content
+```shell
+echo <content> | curl -F-=\<- qrenco.de
+```

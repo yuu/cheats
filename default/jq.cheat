@@ -1,0 +1,7 @@
+-*- markdown -*-
+% jq
+
+# select
+```shell
+cat production.log |jq 'select(.named_tags.request_id == "378e421d-7150-49ad-acdb-1b47d0f28ca2")'
+```

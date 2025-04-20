@@ -1,0 +1,22 @@
+-*- markdown -*-
+% compression
+
+# create a tar containing files
+```shell
+tar cf <name>.tar <files>
+```
+
+# create a tar with compression
+```shell
+tar caf <name>.tar.gz <files>
+```
+; algorithm: gz, zstd
+
+# extract the files from a tar
+```shell
+tar xf <tar_file>
+```
+
+
+$ files: ls --- --multi --expand
+$ tar_file: ls *.tar*

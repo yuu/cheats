@@ -1,0 +1,12 @@
+-*- markdown -*-
+% http_server
+
+# python http server
+```shell
+python -m http.server <port>
+```
+
+# post attachment file via curl
+```shell
+curl -X POST -F file=@<file_path> <url>
+```
