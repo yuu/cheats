@@ -1,0 +1,61 @@
+-*- markdown -*-
+% asdf
+
+# list all plugins
+```shell
+asdf plugin list all
+```
+
+# list installed plugins
+```shell
+asdf plugin list
+```
+
+# install plugin
+```shell
+asdf plugin add <plugin_name>
+```
+
+# update all plugins
+```shell
+asdf plugin update --all
+```
+
+# update plugin
+```shell
+asdf plugin update <installed_plugin>
+```
+
+# remove plugin
+```shell
+asdf plugin remove <installed_plugin>
+```
+
+# install specify version
+```shell
+asdf install <installed_plugin> <version_per_installed_plugin>
+```
+
+# reshim rehash
+```shell
+asdf reshim <installed_plugin>
+```
+
+# set version for global
+```shell
+asdf set -u <installed_plugin> <installed_version>
+```
+
+# set version for local
+```shell
+asdf set <installed_plugin> <installed_version>
+```
+
+
+$ installed_plugin: asdf plugin list
+
+$ version_per_installed_plugin: asdf list all <installed_plugin> --- --fzf-overrides --tac
+
+$ installed_version: asdf list <installed_plugin>
+
+$ plugin_name: asdf plugin list all
