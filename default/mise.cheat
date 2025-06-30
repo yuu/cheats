@@ -1,0 +1,37 @@
+-*- markdown -*-
+% venv, mise
+
+# Setup
+```shell
+echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
+```
+
+# Install package
+```shell
+mise install <list_packages>
+```
+
+# Execute commands with specific tools
+```shell
+mise exec node@22 -- node -v
+```
+
+# Use Language for local
+```shell
+mise use <installed_packages>
+```
+
+# Use Language for global
+```shell
+mise use --global <installed_packages>
+```
+
+# Install npm package globally (like npm install -g)
+```shell
+mise use --global npm:<npm_package_name> # @anthropic-ai/claude-code
+```
+
+
+$ list_packages: mise ls-remote --all --- --fzf-overrides --tac
+
+$ installed_packages: mise ls --installed | grep -v '^\s*$' | awk '{if (NF >= 2) print $1"@"$2}'

@@ -35,13 +35,14 @@ git reset Dropbox/**/*~
 git rm --cached <filename>
 
 # git 管理外のファイルはすべて削除
-git clean -dfx
+# https://gotohayato.com/content/104/
+git clean -dfx danger
 
 # コミッターの変更
 git commit --amend --author="name <address>"
 
 # submoduleすべてにcleanを投げる
-git submodule foreach git clean -fdx
+git submodule foreach git clean -fdx danger
 
 # 空ブランチを作成する
 git checkout --orphan doc
