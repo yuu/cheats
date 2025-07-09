@@ -11,9 +11,9 @@ echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 mise install <list_packages>
 ```
 
-# Execute commands with specific tools
+# List package
 ```shell
-mise exec node@22 -- node -v
+mise list
 ```
 
 # Use Language for local
@@ -24,6 +24,11 @@ mise use <installed_packages>
 # Use Language for global
 ```shell
 mise use --global <installed_packages>
+```
+
+# Execute commands with specific tools
+```shell
+mise exec node@22 -- node -v
 ```
 
 # Install npm package globally (like npm install -g)
