@@ -16,3 +16,11 @@ navi repo add https://github.com/yuu/cheats
 ## Requirements
 
 - navi
+- define confirm function
+
+```sh
+confirm () {
+  echo -n "Run '$*'? [y/N] "
+  read -q && echo "" && "$@" || echo "Canceled"
+}
+```
