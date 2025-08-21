@@ -24,3 +24,8 @@ docker compose logs -f <service_name>
 
 
 $ service_name: docker compose ps --- --column 4 --header-lines 1 --delimiter '\s\s+'
+
+# docker system prune
+```shell
+confirm docker system prune
+```
