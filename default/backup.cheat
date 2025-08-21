@@ -1,0 +1,12 @@
+-*- markdown -*-
+% backup, rotate
+
+# 6個以降の古いファイルをリスト化 (backup_2025-01-01.tar.lz4)
+```shell
+ls -1 backup_* | sort -r | tail -n +6
+```
+
+# 6個以降の古いファイルを削除 example
+```shell
+ls -1 abc_backup_* | sort -r | tail -n +6 | xargs rm > /dev/null 2>&1
+```
