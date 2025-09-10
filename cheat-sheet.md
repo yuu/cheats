@@ -44,8 +44,9 @@ perl -pe 's/\r\n|\n|\r/\r/g'   inputfile > outputfile  # Convert to old Mac
 
 
 # complession
-tar xf foo.tar.gz # unzip. auto detection for gzip, zstd
-tar caf foo foo.tar.zstd # zip. auto detection for gzip, zstd
+tar xf foo.tar.gz # unzip. auto detection for gzip, zst
+tar caf foo foo.tar.zst # zip. auto detection for gzip, zst
+
 tar cf - . |lz4 - hoge.tar.lz4 # need `cd path/to/dir`
 lz4 -d hoge.tar.lz4 | tar xf - -C hoge
 tar -c somefolder | pv | lz4 -B4 | ssh example.com "lz4 -d | tar x"
