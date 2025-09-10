@@ -1,0 +1,14 @@
+-*- markdown -*-
+% du, dust
+
+# list directory size
+```shell
+dust -r
+```
+
+% ncdu
+# list directory size
+```shell
+ncdu
+```
+

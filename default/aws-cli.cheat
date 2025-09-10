@@ -5,3 +5,10 @@
 ```shell
 export AWS_PROFILE=$(rg -NPo '(?<=profile ).*(?=\])' ~/.aws/config | fzf)
 ```
+
+# docker login to AWS ECR
+```shell
+aws ecr get-login-password | docker login --username AWS --password-stdin https://<aws_account_id>.dkr.ecr.<region>.amazonaws.com
+```
+
+$ region: echo ap-northeast-1

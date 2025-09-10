@@ -1,0 +1,12 @@
+-*- markdown -*-
+% convert, sips
+
+# convert to jpg from heic
+```shell
+sips -s format jpeg <input>.heic --out <output>.jpg
+```
+
+# convert to jpg from heic iamges
+```shell
+for f in *.heic; do sips -s format jpeg "$f" --out "${f%.heic}.jpg"; done
+```

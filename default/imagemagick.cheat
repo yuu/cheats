@@ -1,0 +1,12 @@
+-*- markdown -*-
+% convert, imagemagic
+
+# convert to jpg from heic
+```shell
+magick convert <input>.heic <output>.jpg
+```
+
+# convert to jpg from heic images
+```shell
+magick mogrify -format jpg -quality <quality> *.heic
+```

@@ -1,0 +1,22 @@
+-*- markdown -*-
+% dl, yt
+
+# get beast video and audio
+```shell
+yt-dlp -f "bestvideo+bestaudio" --merge-output-format mp4 -o "%(title)s.%(ext)s" '<url>'
+```
+
+# get video
+```shell
+yt-dlp --embed-thumbnail --add-metadata --cookies-from-browser chrome -f "bestvideo+bestaudio" -o "%(title)s.%(ext)s" --paths $HOME/Movie <url>
+```
+
+# get video with cookie
+```shell
+yt-dlp --cookies-from-browser chrome
+```
+
+# get twicast
+```shell
+yt-dlp --cookies-from-browser chrome --video-password <pass> '<url>'
+```

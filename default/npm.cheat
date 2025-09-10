@@ -1,0 +1,19 @@
+-*- markdown -*-
+% npm
+
+# clear cache
+```shell
+npm cache verify
+```
+
+% pnpm
+
+# import package-lock.json
+```shell
+pnpm import
+```
+
+# For example npx create-react-app my-app.
+```shell
+pnpm dlx create-react-app my-app
+```

@@ -1,0 +1,5 @@
+-*- markdown -*-
+% cloudflared
+
+# run tunnel
+cloudflared tunnel --config ~/.cloudflared/ayame.yml run

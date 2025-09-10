@@ -8,7 +8,7 @@ curl -s http://checkip.amazonaws.com
 
 # scan ip address
 ```shell
-sudo arp-scan -l
+sudo arp-scan --interface en0 <cidr>
 ```
 
 

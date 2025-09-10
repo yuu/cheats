@@ -228,3 +228,11 @@ nkf --guess <file_path>
 ```shell
 nkf -w <sjis_file_path> > <output_file_path>
 ```
+
+
+% shell rename
+
+# rename file ext
+```shell
+rename -f 's/.<input_ext>/.<output_ext>/' *.<input_ext>
+```
