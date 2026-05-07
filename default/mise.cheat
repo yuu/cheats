@@ -1,11 +1,12 @@
 -*- markdown -*-
-% venv, mise
+% venv, mise, setup
 
 # Setup
 ```shell
 echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 ```
 
+% venv, mise
 # Install package
 ```shell
 mise install <list_packages>

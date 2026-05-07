@@ -34,3 +34,8 @@ dig @リプレイス前ネームサーバー +short example.co.jp a
 dig @リプレイス後ネームサーバー +short example.co.jp a
 
 表示された値が同じであれば、リプレイス後のネームサーバーにも必要なDNSレコードが登録されているということになります。
+
+# get domain information from JPRS
+```shell
+whois -h whois.jprs.jp <domain>
+```

@@ -3,7 +3,7 @@
 
 # python http server
 ```shell
-python -m http.server <port>
+python3 -m http.server <port>
 ```
 
 # post attachment file via curl

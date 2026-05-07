@@ -6,9 +6,21 @@
 export AWS_PROFILE=$(rg -NPo '(?<=profile ).*(?=\])' ~/.aws/config | fzf)
 ```
 
+# login sso
+```shell
+aws sso login
+```
+
 # docker login to AWS ECR
 ```shell
 aws ecr get-login-password | docker login --username AWS --password-stdin https://<aws_account_id>.dkr.ecr.<region>.amazonaws.com
+```
+
+# start session
+```shell
+aws ssm start-session --target <instance_id> \
+--document-name AWS-StartPortForwardingSessionToRemoteHost \
+--parameters '{"host":["<url_via_namespace>"],"portNumber":["5432"],"localPortNumber":["5434"]}'
 ```
 
 $ region: echo ap-northeast-1
