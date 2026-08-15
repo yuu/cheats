@@ -1,0 +1,20 @@
+-*- markdown -*-
+% duckdb
+
+# jsonl to parquet (input: foo.jsonl, output: bar.parquet)
+```shell
+duckdb -c 'copy ( select * from read_json_auto(<input>, union_by_name=true) ) TO <output> (FORMAT PARQUET);'
+```
+
+<!-- $ input: site-2025-03-09.jsonl -->
+<!-- $ output: 2025/site-2025-03-09.parquet -->
+
+# multiple ltsv to jsonl
+```shell
+for log in site-*.log; do if [ -f "$log" ]; then echo "Converting $log..."; cat "$log" | sbcl --noinform --load ~/quicklisp/setup.lisp --script ../to-json.lisp > "${log%.log}.jsonl" && echo "✓ Created ${log%.log}.jsonl"; fi; done
+```
+
+# multiple jsonl to parquet
+```shell
+for log in site-*.jsonl; do if [ -f "$log" ]; then echo "Converting $log..."; duckdb -c "copy ( select * from read_json_auto('$log', union_by_name=true) ) TO \"${log%.jsonl}.parquet\" (FORMAT PARQUET);" && echo "✓ Created ${log%.jsonl}.parquet"; fi; done
+```

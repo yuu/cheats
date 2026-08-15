@@ -1,0 +1,112 @@
+-*- markdown -*-
+% syncthing
+
+# フォルダを新規作成する
+```shell
+syncthing cli config folders add --id=<folder-id> --label=<label> --path=<path>
+```
+
+# こちらに接続した、未承認デバイス一覧
+```shell
+syncthing cli show pending devices
+```
+
+# 相手から共有され、未承認フォルダ一覧
+```shell
+syncthing cli show pending folders
+```
+
+# デバイスを追加/承認する
+```shell
+syncthing cli config devices add --device-id=<device-id> --name=<name>
+```
+
+# フォルダにデバイスを追加する (承認する) (req デバイスとペアリング済)
+```shell
+syncthing cli config folders <folder-id> devices add --device-id=<device-id>
+```
+
+# フォルダの共有から特定デバイスを外す (そのデバイスとだけ同期しなくなる)
+```shell
+syncthing cli config folders <folder-id> devices <device-id> delete
+```
+
+# フォルダの同期を一時停止する (定義と共有設定は残る)
+```shell
+syncthing cli config folders <folder-id> paused set true
+```
+
+# フォルダの同期を再開する
+```shell
+syncthing cli config folders <folder-id> paused set false
+```
+
+# フォルダの同期方向を確認する
+```shell
+syncthing cli config folders <folder-id> type get
+```
+
+# フォルダの同期方向を変える (sendreceive =双方向 / sendonly =送るだけ / receiveonly =受けるだけ / receiveencrypted)
+```shell
+syncthing cli config folders <folder-id> type set <type>
+```
+
+# フォルダの同期設定を外す (ディスク上のファイルは消えない)
+```shell
+syncthing cli config folders <folder-id> delete
+```
+
+# 環境確認 path 関連
+```shell
+syncthing paths
+```
+
+# 自身のデバイスID
+```shell
+syncthing device-id
+```
+
+# ペアリング済 デバイス一覧
+```shell
+syncthing cli config dump-json | jq -r '.devices[] | "\(.deviceID)  \(.name)"'
+```
+
+# 同期フォルダ一覧 (id / label / path)
+```shell
+syncthing cli config dump-json | jq -r '.folders[] | "\(.id)\t\(.label)\t\(.path)"'
+```
+
+# デバイスとの接続を停止する (登録と共有設定は残る)
+```shell
+syncthing cli config devices <device-id> paused set true
+```
+
+# デバイスとの接続を再開する (再接続で ClusterConfig が再送される)
+```shell
+syncthing cli config devices <device-id> paused set false
+```
+
+# 全フォルダの同期完了を確認する (needItems が 0 なら受け取り済み)
+```shell
+curl -s -H "X-API-Key: $(syncthing cli config gui apikey get)" http://127.0.0.1:8384/rest/db/completion | jq '{completion,needItems,needBytes}'
+```
+
+# フォルダごとの同期状態を見る (state: idle / scanning / syncing)
+```shell
+API=$(syncthing cli config gui apikey get); ST=http://127.0.0.1:8384; curl -s -H "X-API-Key: $API" "$ST/rest/config/folders" | jq -r '.[].id' | while read -r f; do printf '%-14s ' "$f"; curl -s -H "X-API-Key: $API" "$ST/rest/db/status?folder=$f" | jq -r '"state=\(.state) need=\(.needFiles) global=\(.globalFiles) local=\(.localFiles)"'; done
+```
+
+# 現在の同期エラーを見る
+```shell
+syncthing cli errors show
+```
+
+# ログを追う (brew services 起動時。stdout がここへリダイレクトされる)
+```shell
+tail -f "$(brew --prefix)/var/log/syncthing.log"
+```
+
+# ログを追う (--log-file=default か STLOGFILE を設定して自前でログを書かせている場合)
+```shell
+tail -f "$(syncthing paths | sed -n '/^Log file:/{n;s/^\t//;p;}')"
+```

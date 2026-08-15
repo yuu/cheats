@@ -1,0 +1,72 @@
+-*- markdown -*-
+% ntfy, notification
+
+# publish a simple message to a topic
+```shell
+ntfy publish <topic> <message>
+```
+
+# publish with a title
+```shell
+ntfy publish -t <title> <topic> <message>
+```
+
+# publish with priority (1=min, 2=low, 3=default, 4=high, 5=max)
+```shell
+ntfy publish -p <priority> <topic> <message>
+```
+
+# publish with tags / emojis (comma separated)
+```shell
+ntfy publish --tags <tags> <topic> <message>
+```
+
+# publish with a click URL (opens when notification is tapped)
+```shell
+ntfy publish --click <url> <topic> <message>
+```
+
+# publish with a file attachment
+```shell
+ntfy publish --file <path> <topic> <message>
+```
+
+# publish message body from stdin
+```shell
+echo <message> | ntfy publish <topic>
+```
+
+# schedule a message at a specific time (e.g. 8:30am, 10s, 1h)
+```shell
+ntfy publish --at <time> <topic> <message>
+```
+
+# run a command and notify when it finishes
+```shell
+ntfy publish --wait-cmd <topic> <command>
+```
+
+# wait for a PID to exit then notify
+```shell
+ntfy publish --wait-pid <pid> <topic>
+```
+
+# publish with access token authentication
+```shell
+ntfy publish -k <token> <topic> <message>
+```
+
+# publish with username:password authentication
+```shell
+ntfy publish -u <user:pass> <topic> <message>
+```
+
+# subscribe to a topic (stream messages to stdout)
+```shell
+ntfy subscribe <topic>
+```
+
+# subscribe and output messages as JSON
+```shell
+ntfy subscribe --poll <topic>
+```

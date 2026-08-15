@@ -1,0 +1,32 @@
+-*- markdown -*-
+% mac, caffeinate
+
+# prevent idle sleep (Ctrl+C to stop)
+```shell
+caffeinate -i
+```
+
+# prevent display sleep
+```shell
+caffeinate -d
+```
+
+# prevent sleep for specified seconds (e.g. 1 hour)
+```shell
+caffeinate -u -t <seconds>
+```
+
+# prevent idle sleep while a command is running
+```shell
+caffeinate -i <command>
+```
+
+# prevent all sleep on AC power
+```shell
+caffeinate -s
+```
+
+# wait for a process to exit then release assertion
+```shell
+caffeinate -i -w <pid>
+```

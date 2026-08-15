@@ -1,0 +1,103 @@
+-*- markdown -*-
+% cups, printer, status
+
+# プリンタ一覧を表示
+```shell
+lpstat -p
+```
+
+# デフォルトプリンタを確認
+```shell
+lpstat -d
+```
+
+# プリンタの詳細情報を表示
+```shell
+lpstat -p -l
+```
+
+
+% cups, printer, print, lp
+
+# ファイルを印刷
+```shell
+lp <file>
+```
+
+# プリンタを指定して印刷
+```shell
+lp -d <printer> <file>
+```
+
+# 部数を指定して印刷
+```shell
+lp -n <copies> <file>
+```
+
+# 両面印刷
+```shell
+lp -o sides=two-sided-long-edge <file>
+```
+
+
+% cups, printer, queue, job
+
+# 印刷キューを確認
+```shell
+lpq
+```
+
+# 印刷ジョブをキャンセル
+```shell
+cancel <job_id>
+```
+
+# 全ての印刷ジョブをキャンセル
+```shell
+cancel -a
+```
+
+# 特定プリンタのキューを確認
+```shell
+lpq -P <printer>
+```
+
+
+% cups, printer, admin
+
+# デフォルトプリンタを設定
+```shell
+lpadmin -d <printer>
+```
+
+# プリンタを削除
+```shell
+lpadmin -x <printer>
+```
+
+# プリンタを一時停止
+```shell
+cupsdisable <printer>
+```
+
+# プリンタを再開
+```shell
+cupsenable <printer>
+```
+
+
+% cups, printer, info
+
+# 利用可能なドライバ一覧
+```shell
+lpinfo -m
+```
+
+# 接続されているプリンタデバイスを検出
+```shell
+lpinfo -v
+```
+
+
+$ printer: lpstat -p | awk '{print $2}'
+$ job_id: lpq --- --column 1 --header-lines 2

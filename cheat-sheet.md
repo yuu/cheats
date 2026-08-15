@@ -55,3 +55,8 @@ tar -c somefolder | pv | lz4 -B4 | ssh example.com "lz4 -d | tar x"
 # fs
 fswatch -0 ~/Downloads | xargs -0 -n1 -I{} sh -c 'if [[ "{}" == *.csv ]]; then cat "{}" && echo "==="; fi' # [mac] monitor new file -> cat file
 
+# get chrome profile name
+jq -r '.profile.info_cache | to_entries[] | "\(.key)\t\(.value.name)"' ~/Library/Application\ Support/Google/Chrome/"Local State"
+
+# create shortcut by chrome specify profile
+osacompile -o "~/Applications/Chrome Profile.app" -e 'do shell script "open -na \"Google Chrome\" --args --profile-directory=\"Profile 1\""'

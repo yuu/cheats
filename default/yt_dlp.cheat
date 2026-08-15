@@ -8,20 +8,15 @@ yt-dlp --list-formats '<url>'
 
 # get beast video and audio
 ```shell
-yt-dlp --embed-thumbnail --add-metadata --format "bestvideo+bestaudio" --merge-output-format mp4 -o "%(title)s.%(ext)s" '<url>'
+yt-dlp --embed-thumbnail --add-metadata --format "bestvideo+bestaudio" --merge-output-format mp4 -o "%(title)s.%(ext)s" --paths $HOME/Movies '<url>'
 ```
 
-# get video
+# get beast video and audio with cookie
 ```shell
-yt-dlp --embed-thumbnail --add-metadata --cookies-from-browser chrome --format "bestvideo+bestaudio" -o "%(title)s.%(ext)s" --paths $HOME/Movies '<url>'
-```
-
-# get video with cookie
-```shell
-yt-dlp --cookies-from-browser chrome
+yt-dlp --embed-thumbnail --add-metadata --format "bestvideo+bestaudio"                           -o "%(title)s.%(ext)s" --paths $HOME/Movies --cookies-from-browser chrome '<url>'
 ```
 
 # get twicast
 ```shell
-yt-dlp --cookies-from-browser chrome --video-password <pass> '<url>'
+yt-dlp --cookies-from-browser chrome --video-password <pass> -o "%(title)s.%(ext)s" --paths $HOME/Movies '<url>'
 ```

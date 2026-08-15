@@ -1,0 +1,7 @@
+-*- markdown -*-
+% github
+
+# github label setup
+```shell
+github-label-setup --token $(op item get dc3xdcr2nltnbap7yv3wyj3e4e --fields label=token) -l '/Users/yuu/yuuxzy@gmail.com - Google Drive/My Drive/3.resources/config/github-lael-setup-labels.json
+```

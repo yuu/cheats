@@ -1,0 +1,7 @@
+-*- markdown -*-
+% rclone, ftp
+
+# serve a local dir over FTP (passive mode, custom port range)
+```shell
+rclone serve ftp ~/work/ftp --addr :21 --user user --pass mypassword --passive-port 30000-30010
+```
